@@ -1,5 +1,9 @@
 import { stringInfo } from "./types";
 
+class StringUtils {
+  public toUpperCase = (arg: string) => arg.toUpperCase();
+}
+
 const toUpperCase = (arg: string) => arg.toUpperCase();
 const toLowerCase = (arg: string) => arg.toLowerCase();
 const getStringInfo = (arg: string): stringInfo => {
@@ -11,4 +15,4 @@ const getStringInfo = (arg: string): stringInfo => {
   return { lowerCase, upperCase, characters, length, extraInfo };
 };
 
-export { toUpperCase, toLowerCase, getStringInfo };
+export { StringUtils, toUpperCase, toLowerCase, getStringInfo };
