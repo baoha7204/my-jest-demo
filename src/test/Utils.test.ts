@@ -20,28 +20,63 @@ describe("Utils test suite", () => {
     expect(actual).toBe(expected);
   });
 
-  it("should return string info", () => {
-    const sut = getStringInfo;
-    const expected = {
-      lowerCase: "clementine",
-      upperCase: "CLEMENTINE",
-      characters: ["C", "l", "e", "M", "e", "n", "T", "i", "N", "e"],
-      length: 10,
-      extraInfo: {},
-    };
+  describe.only("getStringInfo for arg CleMenTiNe should", () => {
+    it("return right length", () => {
+      const sut = getStringInfo;
+      const expected = 10;
 
-    const actual = sut("CleMenTiNe");
+      const actual = sut("CleMenTiNe");
 
-    expect(actual).toEqual(expected);
-    expect(actual.characters).toHaveLength(10);
-    expect(actual.characters).toContain<string>("T");
-    expect(actual.characters).toEqual(
-      expect.arrayContaining(["n", "T", "i", "N", "e", "C", "l", "M", "e"])
-    );
+      expect(actual.length).toBe(expected);
+    });
 
-    expect(actual.extraInfo).toBeDefined();
-    expect(actual.extraInfo).toBeTruthy();
-    expect(actual.extraInfo).not.toBeUndefined();
-    expect(actual.extraInfo).not.toBe(undefined);
+    it("return right lower case", () => {
+      const sut = getStringInfo;
+      const expected = "clementine";
+
+      const actual = sut("CleMenTiNe");
+
+      expect(actual.lowerCase).toBe(expected);
+    });
+
+    it("return right upper case", () => {
+      const sut = getStringInfo;
+      const expected = "CLEMENTINE";
+
+      const actual = sut("CleMenTiNe");
+
+      expect(actual.upperCase).toBe(expected);
+    });
+
+    it("return right characters", () => {
+      const sut = getStringInfo;
+      const expected = ["C", "l", "e", "M", "e", "n", "T", "i", "N", "e"];
+
+      const actual = sut("CleMenTiNe");
+
+      expect(actual.characters).toContain<string>("T");
+      expect(actual.characters).toEqual(
+        expect.arrayContaining(["n", "T", "i", "N", "e", "C", "l", "M", "e"])
+      );
+      expect(actual.characters).toEqual(expected);
+    });
+
+    it("return defined extra info", () => {
+      const sut = getStringInfo;
+
+      const actual = sut("CleMenTiNe");
+
+      expect(actual.extraInfo).toBeDefined();
+      expect(actual.extraInfo).not.toBeUndefined();
+    });
+
+    it("return right extra info", () => {
+      const sut = getStringInfo;
+      const expected = {};
+
+      const actual = sut("CleMenTiNe");
+
+      expect(actual.extraInfo).toEqual(expected);
+    });
   });
 });
