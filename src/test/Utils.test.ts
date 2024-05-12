@@ -20,7 +20,21 @@ describe("Utils test suite", () => {
     expect(actual).toBe(expected);
   });
 
-  describe.only("getStringInfo for arg CleMenTiNe should", () => {
+  describe.only("toUpperCase examples", () => {
+    it.each([
+      { input: "baohadepTraiVc", expected: "BAOHADEPTRAIVC" },
+      { input: "CleMenTiNe", expected: "CLEMENTINE" },
+      { input: "baoHa", expected: "BAOHA" },
+    ])("$input toUpperCase should be $expected", ({ input, expected }) => {
+      const sut = toUpperCase;
+
+      const actual = sut(input);
+
+      expect(actual).toBe(expected);
+    });
+  });
+
+  describe("getStringInfo for arg CleMenTiNe should", () => {
     it("return right length", () => {
       const sut = getStringInfo;
       const expected = 10;
