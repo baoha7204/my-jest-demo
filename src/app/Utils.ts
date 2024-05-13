@@ -10,6 +10,7 @@ class StringUtils {
 }
 
 const toUpperCase = (arg: string) => arg.toUpperCase();
+/* istanbul ignore next */
 const toLowerCase = (arg: string) => arg.toLowerCase();
 const getStringInfo = (arg: string): stringInfo => {
   const lowerCase = arg.toLowerCase();

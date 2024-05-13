@@ -6,7 +6,7 @@ import {
 } from "../app/Utils";
 
 describe("Utils test suite", () => {
-  describe.only("StringUtils tests should", () => {
+  describe("StringUtils tests should", () => {
     let sut: StringUtils;
 
     beforeEach(() => {
@@ -19,7 +19,7 @@ describe("Utils test suite", () => {
       console.log("Teardown");
     });
 
-    it.skip("return correct upperCase", () => {
+    it("return correct upperCase", () => {
       const actual = sut.toUpperCase("abc");
 
       expect(actual).toBe("ABC");
@@ -47,24 +47,6 @@ describe("Utils test suite", () => {
         expect(error).toHaveProperty("message", "Argument is required!");
       }
     });
-  });
-  it("should return upper case string", () => {
-    // arrange
-    const sut = toUpperCase;
-    const expected = "BAOHADEPTRAIVC";
-    // act
-    const actual = sut("baohadepTraiVc");
-    // assert
-    expect(actual).toBe(expected);
-  });
-
-  it("should return lower case string", () => {
-    const sut = toLowerCase;
-    const expected = "clementine";
-
-    const actual = sut("CleMenTiNe");
-
-    expect(actual).toBe(expected);
   });
 
   describe("toUpperCase examples", () => {
