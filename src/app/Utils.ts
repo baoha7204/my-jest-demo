@@ -1,7 +1,12 @@
 import { stringInfo } from "./types";
 
 class StringUtils {
-  public toUpperCase = (arg: string) => arg.toUpperCase();
+  public toUpperCase = (arg: string) => {
+    if (!arg) {
+      throw new Error("Argument is required!");
+    }
+    return arg.toUpperCase();
+  };
 }
 
 const toUpperCase = (arg: string) => arg.toUpperCase();

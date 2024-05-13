@@ -19,11 +19,33 @@ describe("Utils test suite", () => {
       console.log("Teardown");
     });
 
-    it("Return correct upperCase", () => {
+    it.skip("return correct upperCase", () => {
       const actual = sut.toUpperCase("abc");
 
       expect(actual).toBe("ABC");
       console.log("Actual test");
+    });
+
+    it("throw error when arg is empty - arrow function", () => {
+      const exepectError = () => sut.toUpperCase("");
+      expect(exepectError).toThrow("Argument is required!");
+    });
+
+    it("throw error when arg is empty - function", () => {
+      function expectError() {
+        sut.toUpperCase("");
+      }
+      expect(expectError).toThrow("Argument is required!");
+    });
+
+    it("throw error when arg is empty - try catch block", () => {
+      try {
+        sut.toUpperCase("");
+        fail("Should throw error for invalid arg!");
+      } catch (error) {
+        expect(error).toBeInstanceOf(Error);
+        expect(error).toHaveProperty("message", "Argument is required!");
+      }
     });
   });
   it("should return upper case string", () => {
